@@ -80,7 +80,10 @@ export default function SearchPage({ navigation }) {
               ? null
               : searchLogList.map((item, index) => {
                   return (
-                    <View key={index}>
+                    <View
+                      key={index}
+                      style={{ flexDirection: "row", alignItems: "center" }}
+                    >
                       <Pressable onPress={() => handleHotLabel(item)}>
                         <Text
                           style={[styles.hotLabelItem, styles.historyLabelItem]}
@@ -90,7 +93,10 @@ export default function SearchPage({ navigation }) {
                           {item.hotLabelTitle}
                         </Text>
                       </Pressable>
-                      <Pressable onPress={() => handledeleteHistory(item)}>
+                      <Pressable
+                        onPress={() => handledeleteHistory(item)}
+                        hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                      >
                         <AntDesign
                           name="minuscircle"
                           size={18}
@@ -178,8 +184,8 @@ const styles = StyleSheet.create({
   },
   deleteItem: {
     position: "absolute",
-    right: 2,
-    top: -44,
+    left: -20,
+    top: -25,
   },
   historyLabelItem: {
     marginRight: 10,
